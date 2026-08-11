@@ -1,0 +1,57 @@
+---
+import Article from '../layouts/Article.astro';
+import { SITE } from '../lib/site';
+---
+
+<Article
+  title="Terms of Use — Erskine Advisory"
+  heading="Terms of use"
+  kicker="Policy"
+  description="Terms of use for the Erskine Advisory website: what this site is, what it isn’t, and the basis on which its content is offered."
+>
+  <h2>What this site is</h2>
+  <p>
+    This website describes the services of {SITE.name} and publishes general commentary on construction from
+    the owner's perspective. Its content is offered in good faith and kept current with reasonable care.
+  </p>
+
+  <h2>What this site is not</h2>
+  <ul>
+    <li>
+      <strong>Not legal advice.</strong> Nothing here is legal advice, and reading it creates no
+      solicitor-client or attorney-client relationship. Construction agreements should be reviewed by a
+      qualified construction lawyer in the project's jurisdiction.
+    </li>
+    <li>
+      <strong>Not an engagement.</strong> No content on this site, and no enquiry sent through it, creates a
+      professional engagement. Engagements exist only under a written agreement signed by both parties, which
+      alone defines the scope, fee, and terms of our work.
+    </li>
+    <li>
+      <strong>Not construction services.</strong> {SITE.name} advises, reviews, verifies, coordinates, and
+      reports on behalf of owners. We do not perform construction work, contract for it, or hire trades.
+      Owners contract directly with their contractors.
+    </li>
+  </ul>
+
+  <h2>No guarantees</h2>
+  <p>
+    Construction outcomes depend on many parties and circumstances beyond any advisor's control. Nothing on
+    this site promises a particular outcome, saving, schedule, or result — and you should be wary of any firm
+    whose website does.
+  </p>
+
+  <h2>Use of content</h2>
+  <p>
+    Content is © {SITE.name}. You may quote it with attribution; you may not republish it wholesale or
+    present it as your own. Trademarks and names of other organizations mentioned on this site belong to
+    their owners.
+  </p>
+
+  <h2>Questions</h2>
+  <p>
+    About these terms, or anything else: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+
+  <p class="annotation not-prose mt-10">Last updated: August 2026.</p>
+</Article>

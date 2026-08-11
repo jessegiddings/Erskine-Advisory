@@ -1,0 +1,58 @@
+---
+import Article from '../layouts/Article.astro';
+import { SITE } from '../lib/site';
+---
+
+<Article
+  title="Privacy — Erskine Advisory"
+  heading="Privacy"
+  kicker="Policy"
+  description="How Erskine Advisory handles the information you share with us: sparingly, confidentially, and without tracking cookies."
+>
+  <p>
+    Discretion is a professional obligation for this firm, not a compliance exercise. This page describes what
+    we collect through this website and what we do with it. It is written to be read.
+  </p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li>
+      <strong>Enquiry details you send us</strong> — through the project review form or by email: your name,
+      contact details, and whatever you choose to tell us about your project.
+    </li>
+    <li>
+      <strong>Aggregate, cookie-free analytics.</strong> This site uses Plausible, which records page views
+      without cookies and without collecting personal data or tracking you across sites. That is why there is
+      no cookie banner here.
+    </li>
+  </ul>
+
+  <h2>What we do with it</h2>
+  <p>
+    Enquiry details are used to respond to you and, if an engagement follows, to run it. They are read by the
+    principals, stored securely, and shared with no one outside the firm except specialists retained on your
+    engagement — who are bound to the same confidentiality. We do not sell, rent, or trade any information.
+    We add no one to a mailing list without their explicit request.
+  </p>
+
+  <h2>Client confidentiality</h2>
+  <p>
+    We do not publish client names, project locations, photographs, or identifying details without written
+    permission. This applies to prospective clients too: the fact that you enquired is itself confidential.
+  </p>
+
+  <h2>Retention and your rights</h2>
+  <p>
+    Enquiry information that does not lead to an engagement is deleted on request, and otherwise not kept
+    beyond its usefulness. You may ask at any time what we hold about you, ask us to correct it, or ask us to
+    delete it: write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+
+  <h2>Third parties</h2>
+  <p>
+    Form submissions are processed by our hosting provider's form service for delivery to us. Analytics are
+    processed by Plausible. Neither is permitted to use your information for their own purposes.
+  </p>
+
+  <p class="annotation not-prose mt-10">Last updated: August 2026.</p>
+</Article>

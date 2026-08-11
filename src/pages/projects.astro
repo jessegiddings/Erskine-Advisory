@@ -1,0 +1,24 @@
+---
+// STUB (spec §3.3): unlinked, noindex, excluded from sitemap.
+// Activate once there are completed engagements with written client
+// permission to describe them. Never populate with stock or invented work.
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Projects — Erskine Advisory"
+  description="Selected engagements of Erskine Advisory."
+  noindex={true}
+>
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+    <div class="max-w-2xl">
+      <p class="annotation uppercase tracking-widest">Projects</p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight">Published as they are earned</h1>
+      <p class="prose mt-5">
+        Our clients value discretion, and we publish no engagement without written permission. Descriptions of
+        completed work will appear here as clients permit. In the meantime, we offer any serious enquiry
+        something better than a curated page: direct references. <a href="/contact">Ask us.</a>
+      </p>
+    </div>
+  </div>
+</Base>
