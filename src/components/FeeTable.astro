@@ -1,0 +1,45 @@
+---
+interface Row {
+  service: string;
+  structure: string;
+  fee: string;
+  href?: string;
+}
+
+interface Props {
+  caption: string;
+  rows: Row[];
+}
+
+const { caption, rows } = Astro.props;
+---
+
+<table class="w-full border-collapse text-left">
+  <caption class="annotation mb-3 text-left">{caption}</caption>
+  <thead>
+    <tr class="border-b border-ink">
+      <th scope="col" class="py-2 pr-4 text-sm font-semibold">Engagement</th>
+      <th scope="col" class="py-2 pr-4 text-sm font-semibold">Structure</th>
+      <th scope="col" class="py-2 text-sm font-semibold">Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      rows.map((row) => (
+        <tr class="border-b border-rule align-top">
+          <td class="py-3 pr-4 text-sm">
+            {row.href ? (
+              <a href={row.href} class="font-medium text-accent underline underline-offset-4">
+                {row.service}
+              </a>
+            ) : (
+              <span class="font-medium">{row.service}</span>
+            )}
+          </td>
+          <td class="py-3 pr-4 text-sm text-mid">{row.structure}</td>
+          <td class="py-3 font-mono text-sm">{row.fee}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

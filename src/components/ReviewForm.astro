@@ -1,0 +1,122 @@
+---
+/**
+ * Project Review diagnostic form. Netlify Forms with honeypot.
+ * Client JS is limited to native HTML validation — no framework.
+ */
+---
+
+<form
+  name="project-review"
+  method="POST"
+  action="/project-review/thank-you"
+  data-netlify="true"
+  netlify-honeypot="company-website"
+  class="mt-10 max-w-2xl"
+>
+  <input type="hidden" name="form-name" value="project-review" />
+
+  <p class="hidden" aria-hidden="true">
+    <label>
+      Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" />
+    </label>
+  </p>
+
+  <div class="grid gap-6 sm:grid-cols-2">
+    <div>
+      <label for="pr-name" class="block text-sm font-medium">Name <span aria-hidden="true" class="text-accent">*</span></label>
+      <input
+        id="pr-name"
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      />
+    </div>
+    <div>
+      <label for="pr-email" class="block text-sm font-medium">Email <span aria-hidden="true" class="text-accent">*</span></label>
+      <input
+        id="pr-email"
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      />
+    </div>
+    <div>
+      <label for="pr-phone" class="block text-sm font-medium">Phone <span class="text-mid">(optional)</span></label>
+      <input
+        id="pr-phone"
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      />
+    </div>
+    <div>
+      <label for="pr-role" class="block text-sm font-medium">Your role</label>
+      <select
+        id="pr-role"
+        name="role"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      >
+        <option value="">Select one</option>
+        <option>Owner</option>
+        <option>Family office / advisor</option>
+        <option>Architect or designer</option>
+        <option>Lawyer or accountant</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="pr-location" class="block text-sm font-medium">Project location</label>
+      <input
+        id="pr-location"
+        name="location"
+        type="text"
+        placeholder="City / region"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      />
+    </div>
+    <div>
+      <label for="pr-stage" class="block text-sm font-medium">Project stage</label>
+      <select
+        id="pr-stage"
+        name="stage"
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"
+      >
+        <option value="">Select one</option>
+        <option>Considering a project</option>
+        <option>In design</option>
+        <option>Contract in hand, not yet signed</option>
+        <option>Under construction</option>
+        <option>Stalled or in dispute</option>
+      </select>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="pr-details" class="block text-sm font-medium">
+        What would you like reviewed? <span aria-hidden="true" class="text-accent">*</span>
+      </label>
+      <p class="mt-1 text-sm text-mid">
+        A sentence or two is enough. Anything you share is held in confidence.
+      </p>
+      <textarea
+        id="pr-details"
+        name="details"
+        rows="5"
+        required
+        class="mt-2 w-full border border-rule bg-white px-3 py-2.5 text-base focus:border-accent"></textarea>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-8 inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
+  >
+    Request the review
+  </button>
+  <p class="annotation mt-4">
+    Replies within two business days. No mailing list, no follow-up sequence.
+  </p>
+</form>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  /** Optional small mono kicker above the statement. */
+  kicker?: string;
+}
+const { kicker } = Astro.props;
+---
+
+<aside class="my-12 border-y border-rule bg-accent-wash">
+  <div class="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+    {kicker && <p class="annotation mb-3 uppercase tracking-widest">{kicker}</p>}
+    <div class="max-w-3xl text-xl leading-relaxed font-medium text-ink sm:text-2xl">
+      <slot />
+    </div>
+  </div>
+</aside>
