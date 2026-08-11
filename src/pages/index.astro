@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import CalloutBand from '../components/CalloutBand.astro';
+import RiskLadder from '../components/RiskLadder.astro';
+import { SITE } from '../lib/site';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'ProfessionalService'],
+    name: SITE.name,
+    url: SITE.url,
+    email: SITE.email,
+    description:
+      'Independent owner’s representation for private clients building or substantially renovating significant residences. Compensated by the client and no one else.',
+    areaServed: ['Canada', 'United States'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Salt Spring Island',
+      addressRegion: 'BC',
+      addressCountry: 'CA',
+    },
+    knowsAbout: [
+      'Owner’s representation',
+      'Construction contract review',
+      'Construction draw verification',
+      'Pre-construction due diligence',
+      'Prefabricated and modular construction',
+    ],
+  },
+];
+---
+
+<Base
+  title="Erskine Advisory — Independent Owner’s Representation"
+  description="Independent owner’s representation for significant private residences. We are paid by the owner and no one else, and we verify the work before the money moves."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-5 pt-16 pb-8 sm:px-8 sm:pt-24">
+    <p class="annotation uppercase tracking-widest">Owner’s representation · Private clients</p>
+    <h1 class="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl sm:leading-[1.1]">
+      Everyone on your project is paid by someone else. We work for you.
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/90">
+      {SITE.name} represents private clients building or substantially renovating significant residences.
+      One obligation, one client, one side of the table. We are compensated by the owner and by no one else —
+      and we verify that the work exists before a draw is released.
+    </p>
+    <div class="mt-9 flex flex-wrap items-center gap-5">
+      <a
+        href="/project-review"
+        class="inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
+      >
+        Request a project review
+      </a>
+      <a href="/the-owners-position" class="text-sm font-medium text-accent underline underline-offset-4">
+        Read: The Owner’s Position
+      </a>
+    </div>
+  </section>
+
+  <!-- The conflict -->
+  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="conflict-heading">
+    <div class="grid gap-10 border-t border-rule pt-10 md:grid-cols-[1fr_2fr]">
+      <h2 id="conflict-heading" class="text-2xl font-semibold tracking-tight">The structural problem</h2>
+      <div class="prose">
+        <p>
+          On a significant residential project, every professional answers to someone. The general contractor’s
+          project manager works for the general contractor. The architect protects the design. The lender
+          protects the loan. Each of them may be excellent — and each of them is structurally on the other
+          side of at least one decision that matters to you.
+        </p>
+        <p>
+          The owner holds all of the risk and is advised, for the most part, by the people the money goes to.
+          An owner’s representative is the only party on the project whose sole obligation is to the owner.
+          That is not a service tier. It is a different position at the table.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CalloutBand kicker="Control of the money">
+    Independent verification that the work exists — quantities in place, milestones genuinely reached —
+    before a draw is released. A function the contractor structurally cannot perform for you.
+  </CalloutBand>
+
+  <!-- Risk ladder -->
+  <section class="mx-auto max-w-6xl px-5 py-10 sm:px-8" aria-labelledby="timing-heading">
+    <div class="max-w-3xl">
+      <h2 id="timing-heading" class="text-2xl font-semibold tracking-tight">Why timing decides most of it</h2>
+      <p class="prose mt-4">
+        By the time most owners start watching closely, the contract is signed, the buyout is done, and the
+        early draws are paid. The leverage is spent. Representation belongs at the start, when the terms are
+        still being written.
+      </p>
+    </div>
+    <RiskLadder />
+    <p>
+      <a href="/services/pre-construction-audit" class="text-sm font-medium text-accent underline underline-offset-4">
+        The Pre-Construction Audit — our fixed-fee starting point
+      </a>
+    </p>
+  </section>
+
+  <!-- What we do / don't -->
+  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="scope-heading">
+    <div class="grid gap-10 border-t border-rule pt-10 md:grid-cols-2">
+      <div>
+        <h2 id="scope-heading" class="text-2xl font-semibold tracking-tight">What we do</h2>
+        <ul class="mt-5 space-y-3 text-[0.95rem] leading-relaxed">
+          <li class="border-b border-rule/60 pb-3">Review budgets, contracts, and schedules before you commit</li>
+          <li class="border-b border-rule/60 pb-3">Verify pay applications and draws against work in place</li>
+          <li class="border-b border-rule/60 pb-3">Report to you, in plain terms, on a fixed cadence</li>
+          <li class="border-b border-rule/60 pb-3">Coordinate the consultant team around your interest</li>
+          <li>Represent your position in every project conversation</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">What we refuse</h2>
+        <ul class="mt-5 space-y-3 text-[0.95rem] leading-relaxed">
+          <li class="border-b border-rule/60 pb-3">Compensation from any party but the client</li>
+          <li class="border-b border-rule/60 pb-3">Referral fees, rebates, or commissions — in any direction</li>
+          <li class="border-b border-rule/60 pb-3">Any ownership interest in a contractor, supplier, or manufacturer</li>
+          <li>Performing or contracting for construction work — you contract directly with your builder</li>
+        </ul>
+        <p class="mt-5">
+          <a href="/independence" class="text-sm font-medium text-accent underline underline-offset-4">
+            Our independence commitment, in full
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honest proof note -->
+  <section class="mx-auto max-w-6xl px-5 pb-6 sm:px-8">
+    <div class="border-t border-rule pt-10">
+      <p class="prose text-mid">
+        We are a new firm, and we will not pretend otherwise. There are no curated testimonials here. What we
+        offer instead: the direct contact details of every client we have worked for, provided to any serious
+        enquiry. At this level, a reference you can call is worth more than a quote we chose.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+    <div class="border border-ink px-6 py-10 sm:px-10">
+      <h2 class="text-2xl font-semibold tracking-tight">Start with a review, not a commitment</h2>
+      <p class="prose mt-3">
+        Send us the outline of your project — stage, location, what is keeping you up at night. We will tell
+        you honestly whether a review is worth your money, and what it would cover.
+      </p>
+      <a
+        href="/project-review"
+        class="mt-6 inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
+      >
+        Request a project review
+      </a>
+    </div>
+  </section>
+</Base>

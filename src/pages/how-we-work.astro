@@ -1,0 +1,80 @@
+---
+import Article from '../layouts/Article.astro';
+
+const phases = [
+  {
+    name: 'Phase 1 — Due diligence',
+    when: 'Before signatures',
+    body: 'Budget, contract, schedule, and team reviewed before anything is binding. Allowances and exclusions surfaced, contract terms tested against what happens when things move, the consultant team assessed for gaps.',
+    deliverables: 'Written audit report · risk register · negotiation agenda for your lawyer',
+  },
+  {
+    name: 'Phase 2 — Pre-construction',
+    when: 'Signatures to mobilization',
+    body: 'The project set up to be verifiable: schedule of values structured so draws can be checked, reporting cadence agreed, change-order protocol fixed in writing, communication lines established so nothing important travels by hallway conversation.',
+    deliverables: 'Baseline budget and schedule · draw verification protocol · reporting calendar',
+  },
+  {
+    name: 'Phase 3 — Construction oversight',
+    when: 'Ground break to substantial completion',
+    body: 'The standing rhythm: draws verified against work in place before release, change orders reviewed and tracked against contingency, schedule monitored against the baseline, and a plain-language report to you on a fixed cadence — including the things going well.',
+    deliverables: 'Draw verification reports · change-order ledger · monthly owner’s report',
+  },
+  {
+    name: 'Phase 4 — Closeout',
+    when: 'Substantial completion to final payment',
+    body: 'The stage most owners are too exhausted to fight: deficiency lists driven to completion, holdbacks and lien periods managed to the calendar, warranties, manuals, and as-builts collected before the final cheque — the last leverage a project has.',
+    deliverables: 'Deficiency log · closeout checklist · document archive',
+  },
+  {
+    name: 'Phase 5 — Warranty',
+    when: 'The first year and beyond',
+    body: 'Warranty claims documented, submitted, and pursued while the obligations are still live. The file we built during construction becomes the evidence that makes warranty conversations short.',
+    deliverables: 'Warranty claim file · anniversary inspection coordination',
+  },
+];
+---
+
+<Article
+  title="How We Work — Five Phases"
+  heading="How we work"
+  kicker="Method"
+  description="Owner’s representation in five phases, from due diligence before signatures through warranty — with the deliverables named for each."
+>
+  <p>
+    Representation is a discipline, not a presence. Each phase below has named deliverables — documents you
+    receive, not assurances you are given. Engagements can begin at any phase, but the earlier phases are
+    where the leverage lives: everything after signatures is played from the position the paperwork created.
+  </p>
+
+  <div class="not-prose mt-10">
+    {
+      phases.map((phase) => (
+        <section class="border-t border-rule py-8" aria-label={phase.name}>
+          <div class="grid gap-4 md:grid-cols-[16rem_1fr]">
+            <div>
+              <h2 class="text-lg font-semibold">{phase.name}</h2>
+              <p class="annotation mt-1">{phase.when}</p>
+            </div>
+            <div>
+              <p class="max-w-prose text-[0.95rem] leading-relaxed">{phase.body}</p>
+              <p class="annotation mt-4">Deliverables: {phase.deliverables}</p>
+            </div>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <h2>Remote-first, verified locally</h2>
+  <p>
+    The paperwork — budgets, contracts, draws, change orders — travels perfectly. It is reviewed centrally by
+    the same people every time, which is how consistency is kept across engagements. The site does not
+    travel, so site verification is performed by retained inspectors in the project’s region, reporting into
+    the same file. The combination is deliberate: continuity of judgment, local eyes on the work.
+  </p>
+
+  <p>
+    Ready to see where your project sits? <a href="/project-review">Request a project review</a>.
+  </p>
+</Article>

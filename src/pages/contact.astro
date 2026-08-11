@@ -1,0 +1,47 @@
+---
+import Article from '../layouts/Article.astro';
+import { SITE } from '../lib/site';
+---
+
+<Article
+  title="Contact — Erskine Advisory"
+  heading="Contact"
+  kicker="Enquiries in confidence"
+  description="Reach Erskine Advisory. Based on Salt Spring Island, British Columbia; engagements across Canada and the United States, delivered remote-first."
+>
+  <p>
+    The fastest route is the <a href="/project-review">project review request</a> — it asks the questions we
+    would ask anyway. For anything else, or if you would simply rather write, use the details below. Every
+    enquiry is read by a principal, held in confidence, and answered within two business days. We are glad to
+    execute your form of NDA before a first conversation.
+  </p>
+
+  <div class="not-prose mt-10 max-w-xl">
+    <dl>
+      <div class="grid grid-cols-[8rem_1fr] border-t border-rule py-4">
+        <dt class="text-sm font-semibold">Email</dt>
+        <dd>
+          <a href={`mailto:${SITE.email}`} class="font-mono text-sm text-accent underline underline-offset-4">
+            {SITE.email}
+          </a>
+        </dd>
+      </div>
+      <div class="grid grid-cols-[8rem_1fr] border-t border-rule py-4">
+        <dt class="text-sm font-semibold">Home base</dt>
+        <dd class="text-sm">{SITE.homeBase}</dd>
+      </div>
+      <div class="grid grid-cols-[8rem_1fr] border-y border-rule py-4">
+        <dt class="text-sm font-semibold">Service area</dt>
+        <dd class="text-sm">{SITE.serviceArea}</dd>
+      </div>
+    </dl>
+  </div>
+
+  <h2>Who we hear from</h2>
+  <p>
+    Owners, naturally — but just as often the people around them: family offices weighing a project’s
+    governance, lawyers whose client has a construction agreement on their desk, architects who want their
+    design protected by a well-run project. If you advise someone who is about to sign, the
+    <a href="/services/pre-construction-audit">Pre-Construction Audit</a> is the engagement to point them to.
+  </p>
+</Article>

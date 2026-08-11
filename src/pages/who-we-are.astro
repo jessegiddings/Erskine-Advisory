@@ -1,0 +1,90 @@
+---
+import Article from '../layouts/Article.astro';
+import { SITE } from '../lib/site';
+
+// NOTE (spec §8.1 / open item #2): Geordie's name and bio must not go live
+// until the employment-lawyer review of his Blend agreement is complete.
+// NOTE (open item #8): Jesse's bio below is a draft pending his confirmation
+// of what is public. Concrete achievements to be added by him.
+---
+
+<Article
+  title="Who We Are — Erskine Advisory"
+  heading="Who we are"
+  kicker="Two principals, one obligation"
+  description="The principals of Erskine Advisory and the independent technical bench retained on every engagement. Experience from both sides of the table; compensation from one."
+>
+  <p>
+    {SITE.name} is a partnership of two principals, supported by a retained bench of independent technical
+    specialists. Between us: years inside the construction industry — including on the builder’s side of the
+    table — and the commercial discipline to run an engagement the way a professional practice should.
+    None of us takes a dollar from anyone but the client.
+  </p>
+
+  <h2>Jesse — Principal</h2>
+  <p>
+    Jesse leads the commercial side of the practice: engagement structure, client relationships, and the
+    standing reporting discipline that keeps an owner genuinely informed rather than merely updated. He holds
+    permanent residency in both Canada and the United States and can contract on either side of the border —
+    a practical advantage for cross-border families, and for American clients building in Canada.
+  </p>
+
+  <h2>Geordie Flanagan — Principal</h2>
+  <p>
+    Geordie has sat on every side of a construction project except the one he now works for exclusively.
+    As Vice President and Partner at Blend Projects, a Victoria, BC prefabricated-home builder, he led sales
+    and operations — pricing projects, structuring agreements, and carrying homes from first conversation
+    through delivery and warranty. Before that he was Blend’s client: he and his family came to the company
+    to build on a beautiful but difficult Salt Spring Island site, under real time pressure, and lived every
+    stage of the process from the owner’s chair — including the parts nobody explains in the sales meeting.
+  </p>
+  <p>
+    That double vantage is the point. Owners spend entire projects trying to work out what their contractor
+    isn’t telling them. Geordie knows where the room is in a construction agreement because he used to draft
+    them. He holds no continuing interest in any builder, Blend included, and works under the
+    <a href="/independence">independence commitment</a> like everyone else at the firm.
+  </p>
+
+  <h2>The technical bench</h2>
+  <p>
+    We retain independent specialists rather than pretending to be all of them. Two generalists cannot
+    credibly review a structural drawing set or price a change order to the dollar — so those functions are
+    performed by people whose profession they are, retained by this firm on the client’s behalf, with no
+    relationship to the contractor:
+  </p>
+  <ul>
+    <li>
+      <strong>Cost consulting.</strong> A professional quantity surveyor validates budgets, benchmarks bids,
+      and prices change orders independently of the party proposing them.
+    </li>
+    <li>
+      <strong>Structural review.</strong> An independent structural engineer reviews drawings and foundation
+      design before they become commitments.
+    </li>
+    <li>
+      <strong>Site verification.</strong> Building inspectors in each active region put independent eyes on
+      the work before a draw is certified.
+    </li>
+    <li>
+      <strong>Construction law.</strong> Contract work is referred to construction counsel; we coordinate the
+      review, your lawyer holds the privilege.
+    </li>
+  </ul>
+  <p class="annotation not-prose mt-6">
+    The named bench for a given engagement is confirmed in the proposal, matched to the project’s region and
+    scope.
+  </p>
+
+  <h2>On proof</h2>
+  <p>
+    This practice is new under this name, and we would rather say so than decorate the fact. We publish no
+    testimonials and no project gallery — partly because our clients value discretion, and mostly because
+    curated praise is the weakest form of evidence. What we offer any serious enquiry is stronger: the direct
+    contact details of every client we have had. Call them and ask.
+  </p>
+
+  <p>
+    <a href="/project-review">Request a project review</a>, or write to
+    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+</Article>
