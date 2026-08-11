@@ -1,0 +1,53 @@
+---
+import { getCollection, render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { SITE } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({
+    params: { slug: service.data.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.data.title,
+    description: service.data.summary,
+    serviceType: 'Owner’s representation (construction advisory)',
+    provider: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+    },
+    areaServed: ['Canada', 'United States'],
+  },
+];
+---
+
+<Article
+  title={`${service.data.title} — ${SITE.name}`}
+  heading={service.data.title}
+  kicker="Service"
+  description={service.data.summary}
+  metaLine={`Fee shape: ${service.data.feeShape}`}
+  jsonLd={jsonLd}
+>
+  <Content />
+
+  <div slot="after" class="mt-14 max-w-3xl border-t border-rule pt-8">
+    <p class="annotation">For: {service.data.whoItsFor}</p>
+    <a
+      href="/project-review"
+      class="mt-5 inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
+    >
+      Request a project review
+    </a>
+  </div>
+</Article>
