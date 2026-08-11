@@ -1,27 +1,30 @@
 ---
-title: 'Prefabricated & Modular Projects'
+title: 'Prefab & Modular'
 slug: 'prefab-and-modular'
-summary: 'Owner’s representation for projects with factory-built scope — where the risks move off-site, the payment schedule runs ahead of the site, and almost no representative knows the territory.'
+summary: 'Factory-built components and modules, where the delivery model creates risks conventional advice doesn’t address.'
 feeShape: 'Same structures as conventional engagements; scope adapted to the delivery model'
-whoItsFor: 'Owners incorporating prefabricated or modular components into a significant residence'
+whoItsFor: 'Owners incorporating factory-built components or modules into a significant residence'
 order: 5
 ---
 
-## Why this is a distinct capability
+## The problem it solves
 
-Factory-built scope is no longer a niche choice; panelized systems, engineered timber, and volumetric modules now appear in serious residences as a matter of course. The economics can be genuinely better. But the risk profile is different in ways conventional oversight does not catch, because the usual owner's-rep playbook assumes the work happens where you can see it.
+Factory-built scope has moved into serious residences — panelized systems, engineered timber, volumetric modules — and the economics can be genuinely good. But the risk profile is different in ways conventional owner-side advice does not address, because the usual playbook assumes the work happens where you can see it.
 
-- **The money runs ahead of the site.** Factory contracts front-load payment — deposits at design freeze, progress payments against factory milestones — often before anything exists at your address. Verifying a factory milestone is a different discipline from verifying a foundation.
-- **Two contracts, one seam.** A manufacturer's scope and a site contractor's scope meet at an interface where each party's exclusions point at the other. The seam — foundations, connections, weathertightness at set, warranty boundaries — is where the disputes live.
-- **Design freezes are real.** In conventional construction, late changes are expensive; in factory production they can be impossible. The decision calendar has to run earlier, and someone has to hold the owner to it.
-- **Logistics is scope.** Transport, craneage, access, and the set sequence are project risks someone must own on paper, not assumptions left to goodwill.
+The specific risks are knowable. **The gap between delivered scope and finished house**: a manufacturer's contract ends somewhere, a site contractor's begins somewhere, and the space between them — foundations, connections, weathertightness at set, the warranty seam — is where disputes live, with each party's exclusions pointing at the other. **Payment tied to production rather than site progress**: deposits at design freeze and progress payments against factory milestones, often before anything exists at your address, verified by a different discipline than a foundation is. **Transport and crane access**: logistics is scope, and someone has to own it on paper. **Foundation tolerance**: a module built to millimetres meeting sitework built to site tolerances, with the reconciliation nobody priced. And **design freezes that are real** — in factory production a late change is not expensive, it is often impossible, so the decision calendar must run earlier and someone must hold you to it.
 
-## What we do differently here
+## What's included
 
-One of our principals spent years inside a prefabricated-home manufacturer — pricing these projects, structuring these agreements, and living the factory-to-site handoff from the builder's side. We review manufacturer agreements with an eye for where the standard forms allocate risk, structure the two-contract interface so the seam is somebody's responsibility, align the payment schedule with verifiable milestones on both the factory and the site, and hold the decision calendar a factory build actually requires.
+The [Pre-Construction Audit](/services/pre-construction-audit), extended to the delivery model: the manufacturer agreement reviewed alongside the site contract, the interface between them mapped so every scope item has exactly one owner, the payment schedule aligned to verifiable milestones on both the factory and the site, and the decision calendar built around the real freeze dates. In full representation, factory milestones are verified before production payments move, the same way site draws are.
 
-The [independence commitment](/independence) applies with particular force: we hold no interest in any manufacturer, take no referral fees from any of them, and are compensated by you alone — which matters most in a corner of the industry where recommendations are usually paid for.
+## Who it's for
+
+Owners incorporating factory-built components into a significant residence — and their architects, who often know the design case for prefabrication well and want the commercial side held by someone who knows that territory.
 
 ## Fee
 
-Structured like our conventional engagements — the [Pre-Construction Audit](/services/pre-construction-audit) adapted to include the manufacturer agreement and interface review, and full representation quoted per engagement.
+The same structures as our conventional engagements — fixed-fee audit, percentage or retainer for full representation — with scope adapted to the delivery model. Published details on [the fees page](/fees).
+
+## What it isn't
+
+Not an endorsement of any manufacturer, and not a sourcing service: we hold no interest in any manufacturer, take no referral fees from any of them, and don't steer clients toward or away from any company — the [independence commitment](/independence) applies with particular force in a corner of the industry where recommendations are usually paid for. One of us spent five years inside a prefabricated housing company; that is where the knowledge comes from, and the commitment is what keeps it usable on your side of the table.

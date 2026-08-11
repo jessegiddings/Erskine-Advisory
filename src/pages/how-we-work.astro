@@ -3,62 +3,57 @@ import Article from '../layouts/Article.astro';
 
 const phases = [
   {
-    name: 'Phase 1 — Due diligence',
-    when: 'Before signatures',
-    body: 'Budget, contract, schedule, and team reviewed before anything is binding. Allowances and exclusions surfaced, contract terms tested against what happens when things move, the consultant team assessed for gaps.',
-    deliverables: 'Written audit report · risk register · negotiation agenda for your lawyer',
+    name: 'Assess',
+    body: 'A project review — the short structured conversation — and then, where warranted, the paid audit: budget, contract, schedule and team examined before anything is binding.',
+    deliverable: 'Written findings on budget, contract, schedule and team, plus a risk register.',
   },
   {
-    name: 'Phase 2 — Pre-construction',
-    when: 'Signatures to mobilization',
-    body: 'The project set up to be verifiable: schedule of values structured so draws can be checked, reporting cadence agreed, change-order protocol fixed in writing, communication lines established so nothing important travels by hallway conversation.',
-    deliverables: 'Baseline budget and schedule · draw verification protocol · reporting calendar',
+    name: 'Commit',
+    body: 'The period between choosing a builder and signing with one. Bids compared line against line, the contract reviewed and negotiated with your counsel, and responsibility for every scope item mapped to a party before it can fall between two.',
+    deliverable: 'Redlines, bid analysis, scope matrix.',
   },
   {
-    name: 'Phase 3 — Construction oversight',
-    when: 'Ground break to substantial completion',
-    body: 'The standing rhythm: draws verified against work in place before release, change orders reviewed and tracked against contingency, schedule monitored against the baseline, and a plain-language report to you on a fixed cadence — including the things going well.',
-    deliverables: 'Draw verification reports · change-order ledger · monthly owner’s report',
+    name: 'Hold',
+    body: 'Construction, run as a discipline. We chair the project meetings, own the decision log, and maintain a live schedule against the real baseline — not the one that drifts a week at a time until nobody remembers the original.',
+    deliverable: 'Minutes, decision log, current baseline.',
   },
   {
-    name: 'Phase 4 — Closeout',
-    when: 'Substantial completion to final payment',
-    body: 'The stage most owners are too exhausted to fight: deficiency lists driven to completion, holdbacks and lien periods managed to the calendar, warranties, manuals, and as-builts collected before the final cheque — the last leverage a project has.',
-    deliverables: 'Deficiency log · closeout checklist · document archive',
+    name: 'Verify',
+    body: 'Every payment application read against work in place before it is approved. Every change order interrogated: was it in scope, is the price supported, what does it do to the schedule. Draws approved in writing, or not.',
+    deliverable: 'Monthly owner’s report and signed draw approvals.',
   },
   {
-    name: 'Phase 5 — Warranty',
-    when: 'The first year and beyond',
-    body: 'Warranty claims documented, submitted, and pursued while the obligations are still live. The file we built during construction becomes the evidence that makes warranty conversations short.',
-    deliverables: 'Warranty claim file · anniversary inspection coordination',
+    name: 'Close',
+    body: 'The stage exhaustion usually surrenders: punch list driven to closure, warranties and as-builts collected, lien releases confirmed, and the final reconciliation done while leverage still exists.',
+    deliverable: 'Closeout package.',
   },
 ];
 ---
 
 <Article
-  title="How We Work — Five Phases"
-  heading="How we work"
+  title="How an Engagement Runs — Five Phases"
+  heading="How an engagement runs"
   kicker="Method"
-  description="Owner’s representation in five phases, from due diligence before signatures through warranty — with the deliverables named for each."
+  description="Five phases — assess, commit, hold, verify, close — each with named deliverables. Concrete artifacts, not assurances, from due diligence through final reconciliation."
 >
   <p>
-    Representation is a discipline, not a presence. Each phase below has named deliverables — documents you
-    receive, not assurances you are given. Engagements can begin at any phase, but the earlier phases are
-    where the leverage lives: everything after signatures is played from the position the paperwork created.
+    Five phases, each producing named artifacts — documents you receive, not assurances you are given. An
+    engagement can begin at any phase, but the earlier ones are where the leverage lives: everything after
+    signatures is played from the position the paperwork created.
   </p>
 
   <div class="not-prose mt-10">
     {
-      phases.map((phase) => (
+      phases.map((phase, i) => (
         <section class="border-t border-rule py-8" aria-label={phase.name}>
-          <div class="grid gap-4 md:grid-cols-[16rem_1fr]">
+          <div class="grid gap-4 md:grid-cols-[12rem_1fr]">
             <div>
-              <h2 class="text-lg font-semibold">{phase.name}</h2>
-              <p class="annotation mt-1">{phase.when}</p>
+              <p class="annotation">Phase {i + 1}</p>
+              <h2 class="mt-1 text-xl font-semibold">{phase.name}</h2>
             </div>
             <div>
               <p class="max-w-prose text-[0.95rem] leading-relaxed">{phase.body}</p>
-              <p class="annotation mt-4">Deliverables: {phase.deliverables}</p>
+              <p class="annotation mt-4">Deliverable: {phase.deliverable}</p>
             </div>
           </div>
         </section>
@@ -66,12 +61,13 @@ const phases = [
     }
   </div>
 
-  <h2>Remote-first, verified locally</h2>
+  <h2>If you aren’t local</h2>
   <p>
-    The paperwork — budgets, contracts, draws, change orders — travels perfectly. It is reviewed centrally by
-    the same people every time, which is how consistency is kept across engagements. The site does not
-    travel, so site verification is performed by retained inspectors in the project’s region, reporting into
-    the same file. The combination is deliberate: continuity of judgment, local eyes on the work.
+    Remote clients get the same engagement with the documentation discipline turned up. Reporting runs on a
+    fixed cadence you can plan around, in writing, with photographs selected to inform rather than reassure.
+    Site verification is performed by retained licensed inspectors in the project’s region and reviewed
+    centrally. Draw approvals are transmitted in writing, recorded against each payment application, and
+    archived — so the project file reads the same whether you visited weekly or never.
   </p>
 
   <p>

@@ -1,33 +1,37 @@
 ---
 title: 'Project Recovery'
 slug: 'project-recovery'
-summary: 'For projects that have stalled, run over, or gone quiet: an independent account of where the project actually stands, and a defensible path to finished.'
-feeShape: 'Fixed-fee assessment first; recovery oversight quoted from its findings'
-whoItsFor: 'Owners with a stalled build, a budget that stopped meaning anything, or a contractor relationship that has gone dark'
+summary: 'Stalled projects, cost overruns, contractor disputes. An independent account of where the project actually stands, then a sequenced path to finished.'
+feeShape: '$300–450 per hour for assessment and advisory; recovery oversight quoted from the findings'
+whoItsFor: 'Owners whose project has stalled, whose budget has stopped meaning anything, or whose builder has gone quiet'
 order: 4
 ---
 
-## The engagement
+## If you are reading this late at night
 
-Projects rarely fail loudly. They drift — the schedule slips a season, the budget stops being mentioned, the site goes quiet on weekdays, and the owner realizes they no longer know what is true. By the time it is undeniable, the owner is negotiating from exhaustion, against a party with better information.
+Projects rarely fail loudly. They drift. The schedule slips a season, the budget stops being mentioned, the site goes quiet on weekdays, and at some point you realize you no longer know what is true about your own project. If that is where you are: the situation is almost certainly recoverable, and the next steps are more mechanical than they feel tonight.
 
-Recovery starts by fixing the information problem. Before anything can be renegotiated, someone independent has to establish what has actually been built, what has actually been paid, and what remains — in writing, with evidence.
+What you should not do is negotiate yet. An owner who negotiates before establishing the facts negotiates from exhaustion, against a party with better information. The first job is not confrontation — it is an independent account of where the project actually stands.
 
-## Stage one: the assessment
+## What's included
 
-A fixed-fee, fixed-scope engagement:
+The assessment, first, at hourly rates, scoped in writing:
 
-- **Work in place**, independently verified against what has been paid for — the single number most stalled projects have never honestly established.
-- **The paper position.** Contract status, approved and disputed change orders, notices given and missed, holdback and lien exposure in the project's jurisdiction.
-- **Cost to complete**, independently estimated — not the contractor's figure, and not the owner's hope.
-- **Options, priced.** Restart with the incumbent under new discipline, retender the remaining work, or resolve and exit — each with its realistic cost, timeline, and risk, so the decision is yours and informed.
+- **Work in place**, independently verified against what has been paid — the single number most stalled projects have never honestly established.
+- **The paper position**: contract status, approved and disputed change orders, notices given and missed, holdback and lien exposure in the project's jurisdiction.
+- **Cost to complete**, independently estimated. Not the contractor's figure, and not your hope.
+- **Options, priced and sequenced**: restart with the incumbent under new discipline, retender the remaining work, or resolve and exit — each with its realistic cost, timeline and risk.
 
-## Stage two: recovery oversight
+If the project continues, it continues under structure: verified draws from the next payment, a change-order protocol with teeth, a reporting cadence, and construction counsel where the situation requires it — coordinated with our commercial analysis, with the assessment file built to be useful to your lawyer and to hold up.
 
-If the project continues, it continues under structure: verified draws from the first payment, a change-order protocol with teeth, a reporting cadence, and — where the situation warrants — construction counsel, coordinated with our commercial analysis. Where a dispute is already live, we work alongside your lawyer; the assessment file is built to be useful to them, and to hold up.
+## Who it's for
 
-## A word on honesty
+Owners mid-crisis, and equally their advisors — the lawyer or family office asked "how bad is this?" who needs an independent answer before recommending anything.
 
-Not every project should be recovered on its current terms; sometimes the assessment's most valuable finding is that continuing as-is is the expensive option. You will get that finding straight, because we have no stake in what you decide — only in your deciding it with the facts.
+## Fee
 
-Begin with a [project review](/project-review). Recovery timelines are usually short; earlier is materially cheaper.
+$300–450 per hour for assessment and advisory work, scoped in writing before it starts. Ongoing recovery oversight, where wanted, is quoted from the assessment's findings. Quoted before applicable taxes; travel and disbursements at cost.
+
+## What it isn't
+
+Not litigation — that is your lawyer's work, and we function as the commercial engine behind it rather than a substitute for it. Not a demolition of your builder; many recoveries end with the incumbent finishing well under better discipline. And not always a rescue: sometimes the assessment's most valuable finding is that continuing as-is is the expensive option, and you will get that finding straight — we have no stake in what you decide, only in your deciding it with the facts.

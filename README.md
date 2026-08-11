@@ -1,7 +1,8 @@
 # Erskine Advisory — website
 
 Static site for Erskine Advisory, an independent owner's representation practice for
-private clients building significant residences. Built per **BUILD SPEC v3**.
+private clients building significant residences. Built per **BUILD SPEC v3**, with all
+page copy reconciled to **COPY DRAFT v3**.
 
 Astro 5 · Tailwind CSS 4 · content collections · Netlify Forms · Plausible · self-hosted fonts.
 No CMS, no client-side framework — the only JS on the site is the mobile nav toggle.
@@ -29,8 +30,8 @@ npm run preview   # serve dist/
 2. **E&O ($5M+) and CGL bound** (§8.2) before the site implies engagement capability.
 3. Provisional values in `src/lib/site.ts`: home base city, business email. Update once
    entity/registrations exist (open items #6, #10).
-4. **Fees on `/fees`**: audit range $25,000–$60,000 is from the spec; the Site & Cost
-   Review "from $15,000" is a placeholder needing partner confirmation (open item #7).
+4. **Fees on `/fees`** are from COPY DRAFT v3 (audit $25,000–60,000; recovery/advisory
+   $300–450/hr). Confirm before launch (open item #7).
 5. Jesse's bio on `/who-we-are` is a minimal draft pending his confirmation (open item #8).
 6. Domain: confirm `erskineadvisory.com` (set in `astro.config.mjs` and `src/lib/site.ts`),
    plus CIPO/USPTO/BC registry searches (open item #1).

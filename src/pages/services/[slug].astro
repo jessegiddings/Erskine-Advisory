@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Article from '../../layouts/Article.astro';
+import RiskLadder from '../../components/RiskLadder.astro';
 import { SITE } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -40,6 +41,8 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <Content />
+
+  {service.data.slug === 'pre-construction-audit' && <RiskLadder />}
 
   <div slot="after" class="mt-14 max-w-3xl border-t border-rule pt-8">
     <p class="annotation">For: {service.data.whoItsFor}</p>

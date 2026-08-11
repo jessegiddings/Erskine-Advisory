@@ -1,88 +1,80 @@
 ---
 import Article from '../layouts/Article.astro';
-import CalloutBand from '../components/CalloutBand.astro';
+
+const commitments = [
+  {
+    title: 'We accept compensation from no one but our client.',
+    body: 'No referral fees, finder’s fees, rebates or commissions from builders, subcontractors, suppliers, designers, manufacturers or lenders. Not disclosed-and-accepted. None.',
+  },
+  {
+    title: 'We hold no interest in any construction company.',
+    body: 'We don’t build, own a builder, or take equity in one.',
+  },
+  {
+    title: 'You sign the construction contract.',
+    body: 'Directly, with your licensed general contractor. We never contract for construction work — a deliberate structure that in some jurisdictions is also what makes the independence lawful.',
+  },
+  {
+    title: 'The specialists we retain are paid by us, on your behalf.',
+    body: 'Engineer, cost consultant, inspectors. None of them have a relationship with your contractor.',
+  },
+  {
+    title: 'We recommend firms we would use ourselves, and we say why.',
+    body: 'Including when the answer is a firm we have no relationship with.',
+  },
+  {
+    title: 'We will tell you when you don’t need us.',
+    body: 'Some projects don’t. Saying so costs a fee and earns a referral.',
+  },
+  {
+    title: 'Everything discussed is confidential by default.',
+    body: 'No client name, project or image is published without written permission. Many of our clients would prefer not to be named anywhere, and that is the normal case rather than the exception.',
+  },
+];
 ---
 
 <Article
-  title="Independence — The Standing Commitment"
-  heading="Independence"
+  title="Independence — Whose Side We’re On"
+  heading="Whose side we’re on"
   kicker="The standing commitment"
-  description="No compensation from any party but the client. No interest in any contractor. The owner contracts directly with the builder. This page is the commitment, in full."
+  description="No referral fees from builders. No interest in any contractor. You sign the construction contract. Our independence commitment in full."
 >
-  <p>
-    Independence is the product. Everything else we do — the reviews, the verification, the reporting — is
-    only worth paying for because of who we answer to and who we don’t. So the commitment is written down,
-    published, and standing. It applies to every engagement, without exception, and you may hold us to it in
-    the engagement agreement itself.
-  </p>
+  <p>The entire proposition rests on one thing, so it should be written down and dated.</p>
 
-  <div class="not-prose">
-    <CalloutBand kicker="The commitment">
-      We are compensated by our client and by no one else. We hold no interest in any contractor, supplier,
-      or manufacturer. We take and pay no referral fees. The owner signs the construction contract directly —
-      never through us.
-    </CalloutBand>
+  <div class="not-prose mt-10">
+    <ol class="max-w-prose">
+      {
+        commitments.map((c, i) => (
+          <li class="grid grid-cols-[3rem_1fr] border-t border-rule py-6">
+            <p class="annotation pt-1">{String(i + 1).padStart(2, '0')}</p>
+            <div>
+              <h2 class="text-lg font-semibold">{c.title}</h2>
+              <p class="mt-2 text-[0.95rem] leading-relaxed text-ink/90">{c.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
   </div>
 
-  <h2>What each line means in practice</h2>
-  <h3>One paymaster</h3>
+  <h2>One of us came from the industry</h2>
   <p>
-    Every dollar this firm earns is invoiced to the client. We take nothing from the other side of the table:
-    no marketing allowances from manufacturers, no volume rebates from suppliers, no finder’s fees from
-    builders grateful for an introduction. When we recommend a contractor, a consultant, or a product, the
-    recommendation carries no revenue for us in any direction — which is the only condition under which a
-    recommendation is worth anything.
+    Geordie spent five years inside a prefabricated housing company, latterly as Vice President and Partner.
+    That is where a good deal of the knowledge comes from, and it is a fair thing to ask about.
   </p>
-  <h3>No interest in any contractor</h3>
   <p>
-    Neither the firm nor its principals hold ownership in any construction, supply, or manufacturing business.
-    If that ever changes in a way that could touch a client’s project, the client hears it from us first, in
-    writing, with the option to end the engagement.
+    The answer: we take no compensation from any manufacturer or builder, that one included, and we don’t
+    steer clients toward or away from any company. Understanding exactly how these businesses price, schedule
+    and allocate risk — from the inside — is precisely what makes the representation worth paying for.
+    Someone who has never sat on that side of the table cannot tell you which parts of a contract have room
+    in them.
   </p>
-  <h3>You hold the contract</h3>
   <p>
-    The construction contract is signed between you and your builder. We do not perform construction work, we
-    do not contract for it, and we do not hire trades. Our authority is to advise, review, verify, coordinate,
-    and report — yours is to decide. This is not only the honest structure; it is the one that keeps your
-    representative genuinely outside the transaction they are watching.
-  </p>
-  <h3>The specialists we retain answer to you</h3>
-  <p>
-    Where an engagement needs independent specialists — structural review, cost consulting, site
-    verification — we retain them on the client’s behalf, and they are paid through the engagement, not by
-    the contractor. No specialist we bring to your project has a relationship with your builder.
+    Who we are, in full, is on <a href="/who-we-are">the team page</a>.
   </p>
 
-  <h2>About our industry background</h2>
-  <p>
-    A fair question, and we would rather raise it than wait for it: our principals come out of the
-    construction industry, including senior roles on the builder’s side of the table. Is that a conflict?
+  <p class="not-prose mt-12 border-t border-rule pt-8 max-w-prose text-base font-medium">
+    If any of these commitments stops being true, this page changes first.
   </p>
-  <p>
-    We think it is the qualification. The person best placed to tell you where the room is in a construction
-    agreement is someone who used to draft them. What would make it a conflict is a continuing financial
-    relationship with any builder — and that is precisely what the commitment above forbids. Past experience
-    on the other side of the table, plus zero present interest in it, is what independent representation is
-    supposed to look like. The alternative — a representative who has never seen how a contractor prices,
-    schedules, and negotiates — is independent mainly in the sense of being uninformed.
-  </p>
-  <p>
-    Who we are, in full, is on <a href="/who-we-are">the team page</a>, including where each of us has
-    worked.
-  </p>
-
-  <h2>Confidentiality</h2>
-  <p>
-    Discretion is the default, not a request you have to make. We do not publish client names, project
-    locations, photographs, or identifying details — ever — without written permission. Enquiries and
-    engagement materials are held in confidence, and we are glad to execute your form of NDA before a first
-    conversation.
-  </p>
-
-  <h2>If we ever fall short</h2>
-  <p>
-    Any client who believes we have breached this commitment may raise it directly with either principal and
-    is entitled to a written response. The engagement agreement gives the client the right to terminate on a
-    breach of independence. A firm built on one promise should be easy to fire for breaking it.
-  </p>
+  <p class="annotation not-prose mt-3">Committed August 2026.</p>
 </Article>

@@ -5,16 +5,42 @@ import FeeTable from '../components/FeeTable.astro';
 const entryRows = [
   {
     service: 'Pre-Construction Audit',
-    structure: 'Fixed fee, fixed scope. Budget, contract, schedule, and team reviewed before ground breaks.',
-    fee: '$25,000 – $60,000',
+    structure: 'Fixed scope: budget, contract, schedule and team, reviewed before ground breaks.',
+    fee: 'Flat $25,000–60,000, set by project scale and existing documentation',
     href: '/services/pre-construction-audit',
   },
   {
-    service: 'Site & Cost Review',
-    structure:
-      'Fixed fee. A focused review of one question — a bid, a budget, a site condition, a contract draft — with a written opinion.',
-    fee: 'from $15,000',
-    href: '/project-review',
+    service: 'Project Recovery / advisory',
+    structure: 'Piecemeal and dispute work, scoped in writing before it starts.',
+    fee: '$300–450 per hour',
+    href: '/services/project-recovery',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How is this different from what my general contractor’s project manager does?',
+    a: 'The activities overlap; the obligation doesn’t. The GC’s project manager is employed by the contractor, and when your interest and the contractor’s diverge — an ambiguous scope item, a change order, a delay — their duty runs to their employer. We do much of the same reading and tracking, on the other side of the table, paid by you alone.',
+  },
+  {
+    q: 'Do I need this if I trust my builder?',
+    a: 'Trust is necessary and not sufficient. Public companies audit their books without accusing their accountants. On a multi-year project with dozens of firms and thousands of transactions, honest errors alone justify independent review — and the best builders tend to welcome it, because verified draws get paid without argument.',
+  },
+  {
+    q: 'When should we engage someone?',
+    a: 'Before the construction contract is signed, ideally. Most of the leverage in this work sits in the contract, the bid comparison and the first payment applications. Engaging mid-construction still helps; it just costs more and achieves less than the same attention would have at the start.',
+  },
+  {
+    q: 'What does an owner’s representative typically cost?',
+    a: 'Across the industry: one to five percent of construction cost, with the percentage falling as project size rises; monthly retainers commonly run five to twenty-five thousand dollars; hourly advisory work runs roughly $150–450 depending on the firm. Our own published fees are above, and full representation is quoted per engagement after we understand the project.',
+  },
+  {
+    q: 'Do you charge for the first conversation?',
+    a: 'No.',
+  },
+  {
+    q: 'Will you tell us if we don’t need you?',
+    a: 'Yes, and it has happened. Some projects are well served by their existing team, and saying so costs a fee and earns a referral.',
   },
 ];
 
@@ -22,103 +48,85 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How much does an owner’s representative cost?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Our entry engagements are fixed-fee and published: the Pre-Construction Audit runs $25,000–$60,000 depending on project scale and documentation, and the Site & Cost Review starts at $15,000. Full representation is quoted per engagement, structured either as a percentage of construction cost that steps down as project size rises, or as a monthly retainer.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Do you take referral fees or compensation from contractors?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'No. We accept no compensation from any party but the client — no referral fees, no rebates, no commissions, and no ownership interest in any contractor, supplier, or manufacturer.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Why don’t you publish a price for full representation?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Because the honest answer depends on scope: project complexity, duration, location, and how much of the consultant team is already in place. We publish the structure and the principles, and we quote the number after a scoping conversation — in writing, before you commit to anything.',
-        },
-      },
-    ],
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   },
 ];
 ---
 
 <Article
-  title="Fees — Erskine Advisory"
-  heading="Fees"
-  kicker="Published where we can be, principled where we can’t"
-  description="Fixed, published fees for entry engagements. A clear structure — and firm refusals — for full owner’s representation. No compensation from anyone but the client."
+  title="Fees — How We’re Compensated"
+  heading="How we’re compensated"
+  kicker="Fees"
+  description="How an owner’s representative is compensated: fixed-fee pre-construction audits, percentage or retainer for full engagements, and what we refuse to accept."
   jsonLd={jsonLd}
 >
   <p>
-    A firm whose entire argument is independence should not make you guess how it gets paid. Where an
-    engagement has a fixed scope, we publish the fee. Where the scope is the project itself, we publish the
-    structure and quote the number after we understand what we would be taking on — in writing, before you
-    commit to anything.
+    Two things belong on this page: what the fixed-scope work costs, and how we think about the rest. Both
+    are here because a firm selling independence should be legible about its own money.
   </p>
 
-  <h2>Entry engagements — published</h2>
+  <h2>Fixed-scope engagements — published</h2>
   <div class="not-prose mt-6">
-    <FeeTable
-      caption="Fixed-scope engagements. Final figure confirmed in the proposal, before any work begins."
-      rows={entryRows}
-    />
+    <FeeTable caption="Quoted before applicable taxes. Travel and disbursements at cost." rows={entryRows} />
   </div>
-  <p>
-    The audit range reflects project scale and how much documentation exists to review. A project with a
-    complete drawing set, a signed-ready contract, and a full consultant team sits at the lower end; a
-    complex site with a partial team and an evolving budget sits at the upper. The proposal states the exact
-    figure. It does not move afterwards.
-  </p>
 
-  <h2>Full representation — the structure</h2>
-  <p>
-    Full owner’s representation runs from design through warranty and is quoted per engagement. Two
-    structures, chosen to fit the project:
-  </p>
+  <h2>Full representation — how it’s structured</h2>
+  <p>Priced two ways, and which one suits a project depends on how defined the scope is:</p>
   <ul>
     <li>
-      <strong>Percentage of construction cost</strong>, stepping <em>down</em> as project value rises. The
-      work of representing a project does not scale linearly with its budget, and the fee should not either.
+      <strong>A percentage of construction cost</strong>, billed monthly with a final reconciliation at
+      completion. The percentage steps <em>down</em> as project size rises — a larger project takes more
+      hours but not proportionally more, and a flat percentage would make it subsidise smaller work.
     </li>
     <li>
-      <strong>Monthly retainer</strong>, for projects with long or uncertain timelines, so that our
-      compensation is tied to time and attention rather than to the size of the number being spent.
+      <strong>A monthly retainer</strong>, which suits open-ended or extended scopes better.
     </li>
   </ul>
   <p>
-    Either way, the fee is agreed before the engagement starts, invoiced to the client directly, and never
-    contingent on what the project spends.
+    We quote it after we understand the project, not before. Anyone who quotes a percentage before seeing the
+    drawings and the contract is guessing.
   </p>
 
-  <h2>What we refuse</h2>
-  <p>These cost us nothing to publish, and no builder-affiliated firm can copy them:</p>
+  <h2>What we will not do</h2>
   <ul>
-    <li><strong>No percentage-of-savings fees.</strong> A representative paid on “savings” has an incentive to manufacture them — usually out of your quality.</li>
-    <li><strong>No referral fees, rebates, or commissions</strong> — from contractors, suppliers, manufacturers, or anyone else, in any direction.</li>
-    <li><strong>No compensation from any party but the client.</strong> One paymaster, on purpose.</li>
-    <li><strong>No interest in any contractor.</strong> We hold no ownership in, and take no payment from, any firm that could be engaged on your project.</li>
+    <li>
+      <strong>No percentage of savings.</strong> It sounds aligned and isn’t — it creates an incentive to cut
+      scope and quality rather than protect the project.
+    </li>
+    <li>
+      <strong>No compensation from any party but the client.</strong> No referral fees, rebates or
+      commissions from builders, subcontractors, suppliers, designers or lenders.
+    </li>
+    <li>
+      <strong>No contingency arrangements</strong> tied to project outcomes.
+    </li>
   </ul>
 
-  <h2>A note on what fees buy</h2>
+  <h2>Why start with the audit</h2>
   <p>
-    We will not tell you representation “pays for itself,” and we will never quote a percentage we supposedly
-    save — any such number would be unverifiable, and this practice does not publish unverifiable numbers.
-    What a fee buys is stated plainly on each service page: the documents reviewed, the site visits made, the
-    reports delivered, and one party at the table with no position except yours.
+    Most of the value in this work is delivered before anything is built. The
+    <a href="/services/pre-construction-audit">audit</a> is the cheapest way to find out whether you want us
+    for the rest — and it is a useful document even if you never engage us again.
   </p>
 
-  <p>
-    <a href="/project-review">Request a project review</a> and we will respond with a scoped proposal — the
-    fee stated, the deliverables named.
+  <h2>Common questions</h2>
+  <div class="not-prose mt-6 max-w-prose">
+    {
+      faqs.map((f) => (
+        <details class="group border-t border-rule py-4">
+          <summary class="cursor-pointer text-base font-semibold marker:text-accent">{f.q}</summary>
+          <p class="mt-3 text-[0.95rem] leading-relaxed text-ink/90">{f.a}</p>
+        </details>
+      ))
+    }
+  </div>
+
+  <p class="mt-10">
+    <a href="/project-review">Request a project review</a> — the reply is a scoped proposal with the fee
+    stated and the deliverables named.
   </p>
 </Article>
