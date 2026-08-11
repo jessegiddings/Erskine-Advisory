@@ -1,0 +1,45 @@
+---
+import { SITE, NAV, FOOTER_LINKS } from '../lib/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-rule">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-3">
+    <div>
+      <p class="text-base font-semibold text-ink">{SITE.name}</p>
+      <p class="mt-2 max-w-xs text-sm leading-relaxed text-mid">{SITE.tagline}</p>
+      <p class="annotation mt-4">
+        {SITE.homeBase}<br />
+        {SITE.serviceArea}
+      </p>
+    </div>
+
+    <nav aria-label="Footer">
+      <ul class="space-y-2">
+        {
+          [...NAV, ...FOOTER_LINKS].map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-ink/80 underline-offset-4 hover:text-accent hover:underline">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="text-sm text-mid">
+      <p>
+        <a href={`mailto:${SITE.email}`} class="font-mono text-sm text-ink underline underline-offset-4 hover:text-accent">
+          {SITE.email}
+        </a>
+      </p>
+      <p class="mt-6 max-w-xs leading-relaxed">
+        We are compensated by our clients and by no one else. We hold no interest in any contractor, supplier, or
+        manufacturer.
+      </p>
+      <p class="annotation mt-6">© {year} {SITE.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

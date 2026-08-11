@@ -1,0 +1,77 @@
+---
+import { SITE, NAV } from '../lib/site';
+
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => current === href || (href !== '/' && current.startsWith(href + '/')) || (href === '/services' && current.startsWith('/services'));
+---
+
+<header class="border-b border-rule">
+  <div class="mx-auto flex max-w-6xl items-baseline justify-between gap-6 px-5 py-5 sm:px-8">
+    <a href="/" class="shrink-0 text-lg font-semibold tracking-tight text-ink">
+      {SITE.name}
+    </a>
+
+    <nav aria-label="Main" class="hidden lg:block">
+      <ul class="flex items-baseline gap-7">
+        {
+          NAV.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                class:list={[
+                  'text-sm hover:text-accent',
+                  isActive(item.href) ? 'font-semibold text-ink underline decoration-accent decoration-2 underline-offset-8' : 'text-ink/80',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      class="text-sm font-medium text-ink lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      Menu
+    </button>
+  </div>
+
+  <nav id="mobile-nav" aria-label="Main menu" class="hidden border-t border-rule lg:hidden!" hidden>
+    <ul class="mx-auto max-w-6xl px-5 py-3 sm:px-8">
+      {
+        NAV.map((item) => (
+          <li class="border-b border-rule/60 last:border-b-0">
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={['block py-3 text-base', isActive(item.href) ? 'font-semibold text-accent' : 'text-ink']}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.textContent = open ? 'Menu' : 'Close';
+    if (menu) {
+      menu.hidden = open;
+      menu.classList.toggle('hidden', open);
+    }
+  });
+</script>
