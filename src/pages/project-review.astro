@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import ReviewForm from '../components/ReviewForm.astro';
+---
+
+<Base
+  title="Request a Project Review — Erskine Advisory"
+  description="Tell us where your project stands — planning, contract in hand, under construction, or stalled — and we’ll respond with an honest read and a scoped proposal within two business days."
+>
+  <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+    <header class="max-w-3xl">
+      <p class="annotation uppercase tracking-widest">Diagnostic</p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Request a project review</h1>
+      <p class="prose mt-5">
+        The starting point for every engagement. Tell us where your project stands and what concerns you;
+        a principal will reply within two business days with an honest read — what we would review, what it
+        would cost, and whether we think a review is worth your money at all. Everything you share is held in
+        confidence, and we are glad to sign your NDA before any detail changes hands.
+      </p>
+    </header>
+
+    <ReviewForm />
+  </div>
+</Base>
