@@ -62,16 +62,4 @@ const isActive = (href: string) => current === href || (href !== '/' && current.
   </nav>
 </header>
 
-<script>
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('mobile-nav');
-  toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.textContent = open ? 'Menu' : 'Close';
-    if (menu) {
-      menu.hidden = open;
-      menu.classList.toggle('hidden', open);
-    }
-  });
-</script>
+<script is:inline defer src="/js/nav.js"></script>
