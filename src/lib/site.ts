@@ -11,6 +11,9 @@ export const SITE = {
   serviceArea: 'Engagements across Canada and the United States, delivered remote-first.',
   // PROVISIONAL — open item #10: business email and phone.
   email: 'enquiries@erskineadvisory.com',
+  // PROVISIONAL — create a free Formspree form (formspree.io), then replace
+  // YOUR_FORM_ID with the real ID. The form will not deliver until this is set.
+  formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
   tagline: 'Independent owner’s representation for significant private residences.',
 } as const;
 

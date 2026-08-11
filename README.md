@@ -4,7 +4,7 @@ Static site for Erskine Advisory, an independent owner's representation practice
 private clients building significant residences. Built per **BUILD SPEC v3**, with all
 page copy reconciled to **COPY DRAFT v3**.
 
-Astro 5 · Tailwind CSS 4 · content collections · Netlify Forms · Plausible · self-hosted fonts.
+Astro 5 · Tailwind CSS 4 · content collections · Formspree · Plausible · self-hosted fonts.
 No CMS, no client-side framework — the only JS on the site is the mobile nav toggle.
 
 ```bash
@@ -38,10 +38,13 @@ npm run preview   # serve dist/
 
 ## Deploying
 
-Built for Netlify: the project review form uses Netlify Forms (`data-netlify="true"`,
-honeypot field `company-website`, redirect to `/project-review/thank-you`). After the
-first deploy, verify the form appears in the Netlify dashboard and set up notification
-emails. Add security headers and forced HTTPS in `netlify.toml` or the dashboard.
+Deployed on Vercel as a static Astro build; `vercel.json` carries the security headers
+and immutable caching for fonts and hashed assets. The project review form posts to
+Formspree with a `_gotcha` honeypot and redirects to `/project-review/thank-you`:
+create a free form at formspree.io and replace `YOUR_FORM_ID` in `src/lib/site.ts` —
+**the form does not deliver until that ID is set.** (The `_next` redirect to the
+thank-you page requires a paid Formspree plan; on the free tier submitters see
+Formspree's confirmation page instead, which is fine for launch.)
 
 Analytics: Plausible script is in `src/layouts/Base.astro`; register the domain in
 Plausible before launch or remove the script tag.

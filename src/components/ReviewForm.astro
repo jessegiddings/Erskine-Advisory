@@ -1,23 +1,19 @@
 ---
 /**
- * Project Review diagnostic form. Netlify Forms with honeypot.
- * Client JS is limited to native HTML validation — no framework.
+ * Project Review diagnostic form. Posts to Formspree (endpoint configured in
+ * src/lib/site.ts) with a honeypot (_gotcha). Client JS is limited to native
+ * HTML validation — no framework.
  */
+import { SITE } from '../lib/site';
 ---
 
-<form
-  name="project-review"
-  method="POST"
-  action="/project-review/thank-you"
-  data-netlify="true"
-  netlify-honeypot="company-website"
-  class="mt-10 max-w-2xl"
->
-  <input type="hidden" name="form-name" value="project-review" />
+<form name="project-review" method="POST" action={SITE.formEndpoint} class="mt-10 max-w-2xl">
+  <input type="hidden" name="_subject" value="Project review request — erskineadvisory.com" />
+  <input type="hidden" name="_next" value={`${SITE.url}/project-review/thank-you`} />
 
   <p class="hidden" aria-hidden="true">
     <label>
-      Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" />
+      Leave this field empty: <input name="_gotcha" tabindex="-1" autocomplete="off" />
     </label>
   </p>
 
