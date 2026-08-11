@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { SITE } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('insights');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.publishDate.toISOString(),
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  },
+];
+---
+
+<Article
+  title={`${post.data.title} — ${SITE.name}`}
+  heading={post.data.title}
+  kicker="Insight"
+  description={post.data.description}
+  metaLine={fmt.format(post.data.publishDate)}
+  jsonLd={jsonLd}
+>
+  <Content />
+
+  <div slot="after" class="mt-14 max-w-3xl border-t border-rule pt-8">
+    <p class="prose text-mid">
+      Questions about your own project?
+      <a href="/project-review" class="text-accent underline underline-offset-4">Request a project review</a>
+      — held in confidence, answered by a principal.
+    </p>
+  </div>
+</Article>

@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('insights')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base
+  title="Insights — Erskine Advisory"
+  description="Working notes on the owner’s side of construction: contracts before signing, schedules of values, change orders, draw verification, and building at a distance."
+>
+  <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+    <header class="max-w-3xl">
+      <p class="annotation uppercase tracking-widest">Insights</p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Working notes from the owner’s side</h1>
+      <p class="prose mt-5">
+        What we would tell a friend before they signed. No news, no trend pieces — the mechanics of
+        protecting an owner’s position, written to be useful whether or not you ever hire us.
+      </p>
+    </header>
+
+    <div class="mt-12 max-w-3xl">
+      {
+        posts.map((post) => (
+          <article class="border-t border-rule py-7">
+            <p class="annotation">{fmt.format(post.data.publishDate)}</p>
+            <h2 class="mt-2 text-xl font-semibold">
+              <a href={`/insights/${post.data.slug}`} class="hover:text-accent">
+                {post.data.title}
+              </a>
+            </h2>
+            <p class="mt-2 text-[0.95rem] leading-relaxed text-ink/90">{post.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Base>
