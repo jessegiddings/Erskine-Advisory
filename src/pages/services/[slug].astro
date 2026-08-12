@@ -2,7 +2,28 @@
 import { getCollection, render } from 'astro:content';
 import Article from '../../layouts/Article.astro';
 import RiskLadder from '../../components/RiskLadder.astro';
+import Plate from '../../components/Plate.astro';
 import { SITE } from '../../lib/site';
+
+// Shot-list plates per service (03-ART-DIRECTION §3). Captions are statements
+// about the work — never locations, never projects.
+const PLATES: Record<string, { src: string; alt: string; caption: string }> = {
+  'remote-oversight': {
+    src: '/plates/plate-11-aerial.svg',
+    alt: 'Aerial plan view of a construction site with a marked verification zone',
+    caption: 'Verification travels better than trust.',
+  },
+  'project-recovery': {
+    src: '/plates/plate-12-shell.svg',
+    alt: 'The bare concrete shell of an unfinished building with empty window openings',
+    caption: 'A stalled project is an information problem first.',
+  },
+  'prefab-and-modular': {
+    src: '/plates/plate-13-module.svg',
+    alt: 'A prefabricated module suspended from a crane above its foundation',
+    caption: 'Factory milestones deserve the same verification as site draws.',
+  },
+};
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -40,6 +61,17 @@ const jsonLd = [
   metaLine={`Fee shape: ${service.data.feeShape}`}
   jsonLd={jsonLd}
 >
+  {
+    PLATES[service.data.slug] && (
+      <Plate
+        src={PLATES[service.data.slug].src}
+        alt={PLATES[service.data.slug].alt}
+        caption={PLATES[service.data.slug].caption}
+        class="mb-10 aspect-[21/9]"
+      />
+    )
+  }
+
   <Content />
 
   {service.data.slug === 'pre-construction-audit' && <RiskLadder />}

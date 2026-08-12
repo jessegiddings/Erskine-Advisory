@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import RiskLadder from '../components/RiskLadder.astro';
+import Plate from '../components/Plate.astro';
+import Stat from '../components/Stat.astro';
+import Inverse from '../components/Inverse.astro';
 import { SITE } from '../lib/site';
 
 const services = [
@@ -63,37 +66,53 @@ const jsonLd = [
   description="We represent owners on significant residential projects. Contract review, independent oversight, and verification before payment. Compensated by no one but you."
   jsonLd={jsonLd}
 >
-  <!-- Hero. No photograph: type only, generous space — a letter from an
-       advisor, not a builder's brochure. -->
-  <section class="mx-auto max-w-6xl px-5 pt-16 pb-8 sm:px-8 sm:pt-24">
-    <p class="annotation uppercase tracking-widest">Owner’s representation · Private clients</p>
-    <h1 class="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl sm:leading-[1.1]">
-      Everyone on your project is paid by someone else.
-    </h1>
-    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/90">
-      {SITE.name} represents owners. We review the contract before you sign it, hold the team to it, and
-      verify the work before the money moves. Independent, and compensated by no one but you.
-    </p>
-    <div class="mt-9 flex flex-wrap items-center gap-5">
-      <a
-        href="/project-review"
-        class="inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
-      >
-        Request a project review
-      </a>
-      <a href="/fees" class="text-sm font-medium text-accent underline underline-offset-4">
-        How we’re compensated →
-      </a>
+  <!-- 01 · Hero — full-bleed plate, type over the left third -->
+  <section class="relative" aria-label="Introduction">
+    <Plate
+      src="/plates/plate-01-rebar.svg"
+      alt=""
+      eager={true}
+      class="h-[78vh] min-h-[540px]"
+    >
+      <div class="plate-scrim" style="background: color-mix(in srgb, #1F4E46 78%, transparent);"></div>
+    </Plate>
+    <div class="absolute inset-0 z-10 flex items-center">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+        <p class="annotation !text-paper/80 uppercase tracking-widest">
+          Owner’s representation · Private clients
+        </p>
+        <h1 class="display mt-6 max-w-4xl text-paper text-balance">
+          Everyone on your project is paid by someone else.
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-paper/95">
+          {SITE.name} represents owners. We review the contract before you sign it, hold the team to it, and
+          verify the work before the money moves. Independent, and compensated by no one but you.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-6">
+          <a
+            href="/project-review"
+            class="inline-block bg-paper px-6 py-3 text-sm font-semibold text-ink hover:bg-rule"
+          >
+            Request a project review
+          </a>
+          <a
+            href="/fees"
+            class="text-sm font-medium text-paper underline decoration-paper/60 underline-offset-4 hover:decoration-paper"
+          >
+            How we’re compensated →
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- The structural problem -->
-  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="conflict-heading">
-    <div class="grid gap-10 border-t border-rule pt-10 md:grid-cols-[1fr_2fr]">
-      <h2 id="conflict-heading" class="text-2xl font-semibold tracking-tight text-balance">
+  <!-- 02 · The structural problem — dark band, two-column argument -->
+  <Inverse sectionNo="02 / 07" labelledby="conflict-heading">
+    <div class="grid gap-10 md:grid-cols-[5fr_7fr] md:gap-16">
+      <h2 id="conflict-heading" class="display-sm reveal text-balance">
         The owner is the only party without representation
       </h2>
-      <div class="prose">
+      <div class="reveal max-w-prose space-y-5 text-[1.0625rem] leading-relaxed text-paper/90" style="--reveal-delay: 60ms">
         <p>
           Your general contractor’s project manager is competent, probably honest, and working for the
           contractor. That isn’t a criticism — it’s the job, and their obligation runs to the company
@@ -109,26 +128,32 @@ const jsonLd = [
           fails. When it fails, it fails expensively and late.
         </p>
         <p>
-          <a href="/the-owners-position">The owner’s position →</a>
+          <a href="/the-owners-position" class="font-medium underline underline-offset-4">
+            The owner’s position →
+          </a>
         </p>
       </div>
     </div>
-  </section>
+  </Inverse>
 
-  <!-- Where risk is actually created -->
-  <section class="mx-auto max-w-6xl px-5 py-10 sm:px-8" aria-labelledby="timing-heading">
-    <div class="max-w-3xl border-t border-rule pt-10">
-      <h2 id="timing-heading" class="text-2xl font-semibold tracking-tight text-balance">
+  <!-- 03 · Where risk is actually created -->
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="timing-heading">
+    <p class="section-no mb-8" aria-hidden="true">03 / 07</p>
+    <div class="max-w-3xl">
+      <h2 id="timing-heading" class="display-sm reveal text-balance">
         By the time a project feels wrong, the decisions that made it wrong are eighteen months old
       </h2>
-      <div class="prose mt-4">
+      <div class="prose reveal mt-6" style="--reveal-delay: 60ms">
         <p>
           Owners typically engage help in the middle of construction, when a number arrives that doesn’t make
           sense. By then the contract is signed, the buyout is done, the schedule has been quietly
           re-baselined twice, and change orders have been accumulating against a scope nobody has read
           closely since the spring.
         </p>
-        <p>Almost all of the leverage sat earlier: in the contract, in the bid comparison, in the first three payment applications.</p>
+        <p>
+          Almost all of the leverage sat earlier: in the contract, in the bid comparison, in the first three
+          payment applications.
+        </p>
       </div>
     </div>
     <RiskLadder />
@@ -139,13 +164,22 @@ const jsonLd = [
     </p>
   </section>
 
-  <!-- Draw control -->
-  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="draw-heading">
-    <div class="grid gap-10 border-t border-rule pt-10 md:grid-cols-[1fr_2fr]">
-      <h2 id="draw-heading" class="text-2xl font-semibold tracking-tight text-balance">
+  <!-- Divider plate -->
+  <Plate
+    src="/plates/plate-03-crane.svg"
+    alt="Latticework of a tower crane seen from directly below"
+    caption="A payment application represents a claim, not a fact."
+    class="h-[52vh] min-h-[360px]"
+  />
+
+  <!-- 04 · Draw control — two-column argument -->
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="draw-heading">
+    <p class="section-no mb-8" aria-hidden="true">04 / 07</p>
+    <div class="grid gap-10 md:grid-cols-[5fr_7fr] md:gap-16">
+      <h2 id="draw-heading" class="display-sm reveal text-balance">
         No one should be paid before someone independent confirms the work exists
       </h2>
-      <div class="prose">
+      <div class="reveal max-w-prose space-y-5 text-[1.0625rem] leading-relaxed" style="--reveal-delay: 60ms">
         <p>
           The costliest problems on a large residential project are rarely dramatic. A payment application
           approved for work that is sixty percent complete. A change order that should have been absorbed
@@ -158,47 +192,70 @@ const jsonLd = [
         </p>
         <p>If you are not there, that someone cannot be you.</p>
         <p>
-          <a href="/services/remote-oversight">Remote oversight and draw verification →</a>
+          <a href="/services/remote-oversight" class="font-medium text-accent underline underline-offset-4">
+            Remote oversight and draw verification →
+          </a>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="services-heading">
-    <div class="border-t border-rule pt-10">
-      <h2 id="services-heading" class="text-2xl font-semibold tracking-tight">Services</h2>
-      <ol class="mt-8 grid gap-x-10 gap-y-8 md:grid-cols-2">
-        {
-          services.map((service, i) => (
-            <li class="border-b border-rule/60 pb-6">
-              <p class="annotation">{String(i + 1).padStart(2, '0')}</p>
-              <h3 class="mt-1 text-lg font-semibold">
-                <a href={service.href} class="hover:text-accent">
-                  {service.title}
-                </a>
-              </h3>
-              <p class="mt-2 max-w-prose text-[0.95rem] leading-relaxed text-ink/90">{service.line}</p>
-            </li>
-          ))
-        }
-      </ol>
+  <!-- Stats — real numbers only -->
+  <section class="border-y border-rule" aria-label="The numbers behind the commitment">
+    <div class="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-3">
+      <Stat
+        value="$0"
+        label="Compensation we accept from any party but the client. No referral fees, rebates or commissions, in any direction."
+        sentence="We accept zero compensation from any party but the client — no referral fees, rebates or commissions in any direction."
+      />
+      <Stat
+        value="1–5%"
+        label="The industry’s typical owner’s-representation fee, as a share of construction cost — falling as project size rises. Ours is quoted per engagement."
+        sentence="Across the industry, owner's representation typically costs one to five percent of construction cost, with the percentage falling as project size rises; our fee is quoted per engagement."
+        class="md:[--reveal-delay:60ms]"
+      />
+      <Stat
+        value="100%"
+        label="Share of payment applications read against work in place before we recommend releasing a draw."
+        sentence="One hundred percent of payment applications are read against work in place before we recommend releasing a draw."
+        class="md:[--reveal-delay:120ms]"
+      />
     </div>
   </section>
 
-  <!-- Independence -->
-  <section class="mx-auto max-w-6xl px-5 py-6 sm:px-8" aria-labelledby="independence-heading">
+  <!-- 05 · Services -->
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="services-heading">
+    <p class="section-no mb-8" aria-hidden="true">05 / 07</p>
+    <h2 id="services-heading" class="display-sm">Services</h2>
+    <ol class="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
+      {
+        services.map((service, i) => (
+          <li class="reveal border-b border-rule/60 pb-6" style={`--reveal-delay: ${i * 60}ms`}>
+            <p class="annotation">{String(i + 1).padStart(2, '0')}</p>
+            <h3 class="mt-1 text-lg font-semibold">
+              <a href={service.href} class="hover:text-accent">
+                {service.title}
+              </a>
+            </h3>
+            <p class="mt-2 max-w-prose text-[0.95rem] leading-relaxed text-ink/90">{service.line}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- 06 · Independence -->
+  <section class="mx-auto max-w-6xl px-5 pb-4 sm:px-8" aria-labelledby="independence-heading">
+    <p class="section-no mb-8" aria-hidden="true">06 / 07</p>
     <div class="border-y border-rule bg-accent-wash">
-      <div class="max-w-3xl px-6 py-10 sm:px-10">
-        <h2 id="independence-heading" class="text-2xl font-semibold tracking-tight">
-          We are paid by you and by no one else
-        </h2>
-        <p class="prose mt-4">
+      <div class="max-w-3xl px-6 py-12 sm:px-10">
+        <h2 id="independence-heading" class="display-sm">We are paid by you and by no one else</h2>
+        <p class="prose mt-5">
           No referral fees from builders, suppliers, designers or lenders. No ownership interest in any
           contractor. You sign the construction contract directly — never us. We publish this because it is
           the only part of the proposition that matters.
         </p>
-        <p class="mt-5">
+        <p class="mt-6">
           <a href="/independence" class="text-sm font-medium text-accent underline underline-offset-4">
             Our independence commitment →
           </a>
@@ -207,40 +264,47 @@ const jsonLd = [
     </div>
   </section>
 
-  <!-- On being a new firm — the most important section on the page. -->
-  <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8" aria-labelledby="newfirm-heading">
-    <div class="max-w-3xl">
-      <h2 id="newfirm-heading" class="text-2xl font-semibold tracking-tight">
-        We will not pretend to a history we don’t have
-      </h2>
-      <div class="prose mt-4">
-        <p>
-          This is a new practice. Between us we have been the client on a difficult build and the builder on
-          the other side of the table, and we retain independent specialists — a structural engineer, a cost
-          consultant, licensed inspectors — for the work that requires them.
-        </p>
-        <p>
-          What we will do is give you the direct contact details of every client we have had, and tell you
-          honestly when a project needs someone with a longer record than ours.
-        </p>
+  <!-- 07 · On being a new firm — the most important section on the page -->
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="newfirm-heading">
+    <p class="section-no mb-8" aria-hidden="true">07 / 07</p>
+    <div class="grid items-start gap-10 md:grid-cols-[7fr_5fr] md:gap-16">
+      <div>
+        <h2 id="newfirm-heading" class="display-sm reveal text-balance">
+          We will not pretend to a history we don’t have
+        </h2>
+        <div class="prose reveal mt-6" style="--reveal-delay: 60ms">
+          <p>
+            This is a new practice. Between us we have been the client on a difficult build and the builder
+            on the other side of the table, and we retain independent specialists — a structural engineer, a
+            cost consultant, licensed inspectors — for the work that requires them.
+          </p>
+          <p>
+            What we will do is give you the direct contact details of every client we have had, and tell you
+            honestly when a project needs someone with a longer record than ours.
+          </p>
+        </div>
       </div>
+      <Plate
+        src="/plates/plate-04-framing.svg"
+        alt="Interior wood framing of a house under construction, unfinished"
+        caption="Unfinished is a stage, not a secret."
+        class="aspect-[4/3]"
+      />
     </div>
   </section>
 
-  <!-- Closing CTA -->
-  <section class="mx-auto max-w-6xl px-5 pb-6 sm:px-8">
-    <div class="border border-ink px-6 py-10 sm:px-10">
-      <h2 class="text-2xl font-semibold tracking-tight">Start with a project review</h2>
-      <p class="prose mt-3">
-        A short structured conversation about where the project stands. No fee, and no obligation — including
-        our honest view if you don’t need us.
-      </p>
-      <a
-        href="/project-review"
-        class="mt-6 inline-block bg-accent px-6 py-3 text-sm font-semibold text-paper hover:bg-ink"
-      >
-        Request a project review
-      </a>
-    </div>
-  </section>
+  <!-- Closing CTA — dark band -->
+  <Inverse labelledby="cta-heading">
+    <h2 id="cta-heading" class="display-sm reveal">Start with a project review</h2>
+    <p class="reveal mt-5 max-w-prose text-[1.0625rem] leading-relaxed text-paper/90" style="--reveal-delay: 60ms">
+      A short structured conversation about where the project stands. No fee, and no obligation — including
+      our honest view if you don’t need us.
+    </p>
+    <a
+      href="/project-review"
+      class="mt-8 inline-block bg-paper px-6 py-3 text-sm font-semibold text-ink hover:bg-rule"
+    >
+      Request a project review
+    </a>
+  </Inverse>
 </Base>

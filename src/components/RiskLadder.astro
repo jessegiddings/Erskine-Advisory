@@ -1,17 +1,18 @@
 ---
 /**
- * RiskLadder — the signature diagram (spec §6).
+ * RiskLadder — the signature diagram (03-ART-DIRECTION §4.3).
  *
- * A project timeline showing where owner risk is actually created
- * (contract execution, buyout, first draws, change order accumulation)
- * against where owners typically start paying attention (mid-construction,
- * when correction is expensive). Makes the argument for early engagement.
+ * Owner risk created: a filled area peaking early (contract, buyout, first
+ * draws). Owner attention: a line peaking late. The gap between them is the
+ * argument for the firm, made in one graphic.
  *
- * Pure inline SVG, no JS, full text alternative for screen readers.
+ * Hand-authored SVG, brand palette, monospace labels. Draws in once on
+ * first view (motion.js adds .in-view; inert under reduced motion).
+ * Full text alternative in the figcaption and desc.
  */
 ---
 
-<figure class="my-10" aria-labelledby="riskladder-title" role="group">
+<figure class="riskladder my-12" role="group" aria-labelledby="riskladder-title">
   <svg
     viewBox="0 0 760 380"
     class="w-full"
@@ -21,15 +22,46 @@
   >
     <title id="riskladder-title">Where owner risk is created versus where owners start paying attention</title>
     <desc id="riskladder-desc">
-      A project timeline from design through closeout. Most owner risk is locked in early — at contract
-      execution, buyout, and the first draws — while most owners only begin paying close attention
-      mid-construction, after the leverage to correct course cheaply is gone.
+      A project timeline from design through closeout. Owner risk, drawn as a filled area, peaks early — at
+      contract execution, buyout, and the first draws — then declines. Owner attention, drawn as a dashed
+      line, starts low and peaks mid-construction, after the leverage to correct course cheaply is gone. The
+      gap between the two curves is what an owner’s representative closes.
     </desc>
+
+    <!-- Risk-created: filled area, peaking early -->
+    <path
+      class="rl-fill"
+      d="M 40 90 C 180 85, 300 120, 420 210 C 520 275, 620 285, 720 290 L 720 300 L 40 300 Z"
+      fill="#1F4E46"
+      opacity="0.14"
+    />
+    <path
+      class="rl-line"
+      d="M 40 90 C 180 85, 300 120, 420 210 C 520 275, 620 285, 720 290"
+      fill="none"
+      stroke="#1F4E46"
+      stroke-width="2.5"
+      pathLength="1200"
+    />
+    <g fill="#1F4E46" font-size="12" font-weight="600">
+      <text x="48" y="48">Where risk is created</text>
+    </g>
+
+    <!-- Attention: dashed line, peaking late (fades in after the risk line draws) -->
+    <path
+      class="rl-note"
+      d="M 40 285 C 200 283, 360 275, 460 220 C 540 175, 600 130, 700 110"
+      fill="none"
+      stroke="#7A2E22"
+      stroke-width="2.5"
+      stroke-dasharray="6 4"
+    />
+    <g class="rl-note" fill="#7A2E22" font-size="12" font-weight="600">
+      <text x="530" y="105">Where attention usually starts</text>
+    </g>
 
     <!-- Timeline axis -->
     <line x1="40" y1="300" x2="720" y2="300" stroke="#16181A" stroke-width="1.5" />
-
-    <!-- Phase ticks and labels -->
     <g fill="#6E6E6E" font-size="11">
       <line x1="40" y1="295" x2="40" y2="305" stroke="#16181A" />
       <text x="40" y="322">Design</text>
@@ -43,31 +75,8 @@
       <text x="650" y="322">Closeout</text>
     </g>
 
-    <!-- Risk-created curve: high early, declining -->
-    <path
-      d="M 40 90 C 180 85, 300 120, 420 210 C 520 275, 620 285, 720 290"
-      fill="none"
-      stroke="#1F4E46"
-      stroke-width="2.5"
-    />
-    <g fill="#1F4E46" font-size="12" font-weight="600">
-      <text x="48" y="48">Where risk is created</text>
-    </g>
-
-    <!-- Attention curve: low early, rising mid-construction -->
-    <path
-      d="M 40 285 C 200 283, 360 275, 460 220 C 540 175, 600 130, 700 110"
-      fill="none"
-      stroke="#7A2E22"
-      stroke-width="2.5"
-      stroke-dasharray="6 4"
-    />
-    <g fill="#7A2E22" font-size="12" font-weight="600">
-      <text x="530" y="105">Where attention usually starts</text>
-    </g>
-
-    <!-- Risk-creation event markers -->
-    <g fill="#16181A" font-size="10.5">
+    <!-- Event markers on the risk curve -->
+    <g class="rl-note" fill="#16181A" font-size="10.5">
       <circle cx="180" cy="86" r="4" fill="#1F4E46" />
       <text x="60" y="118">Contract executed:</text>
       <text x="60" y="131" fill="#6E6E6E">terms fixed</text>
@@ -82,7 +91,7 @@
     </g>
 
     <!-- The gap annotation -->
-    <g>
+    <g class="rl-note">
       <line x1="245" y1="102" x2="245" y2="278" stroke="#CFCAC2" stroke-width="1" stroke-dasharray="2 3" />
       <text x="255" y="196" fill="#6E6E6E" font-size="10.5">the gap an owner&#8217;s</text>
       <text x="255" y="209" fill="#6E6E6E" font-size="10.5">representative closes</text>
@@ -95,8 +104,8 @@
   </svg>
 
   <figcaption class="annotation mt-3 max-w-prose">
-    Fig. 01 — Most of an owner&rsquo;s exposure is fixed before ground breaks: at contract execution, at buyout,
-    and in the first draws. Most owners begin paying close attention mid-construction, after the inexpensive
-    corrections are gone. Representation belongs at the left side of this chart.
+    Fig. 01 — Most of an owner&rsquo;s exposure is fixed before ground breaks: at contract execution, at
+    buyout, and in the first draws. Most owners begin paying close attention mid-construction, after the
+    inexpensive corrections are gone. Representation belongs at the left side of this chart.
   </figcaption>
 </figure>

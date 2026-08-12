@@ -1,0 +1,51 @@
+---
+/**
+ * Plate — the single photographic treatment (03-ART-DIRECTION §2).
+ *
+ * Every image on the site ships through this component: monochrome →
+ * duotone into the palette (green shadows, paper highlights), grain,
+ * reduced contrast. One treatment is what makes unrelated images read
+ * as a commissioned set.
+ *
+ * THE ONE RULE (art direction §1): no image may ever be captioned,
+ * positioned or implied as a project of the firm. Captions passed here
+ * must be statements about the work, never locations or projects.
+ *
+ * `src` accepts a path string (current placeholder plates) or an
+ * imported image asset once the photographed set lands.
+ */
+interface Props {
+  src: string;
+  /** Real description of the image for screen readers; '' if pure texture. */
+  alt: string;
+  /** A statement about the work — never a location, never a project. */
+  caption?: string;
+  /** Set true only for the home hero (preloaded, eager). */
+  eager?: boolean;
+  /** Extra classes on the figure (height/aspect come from the caller). */
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, caption, eager = false, class: className, width = 1600, height = 900 } = Astro.props;
+---
+
+<figure class:list={['plate plate-zoom', className]}>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding={eager ? 'sync' : 'async'}
+  />
+  <slot />
+  {
+    caption && (
+      <figcaption class="absolute right-3 bottom-3 z-10 bg-accent px-2.5 py-1.5 text-right font-mono text-[0.75rem] tracking-wide text-paper">
+        {caption}
+      </figcaption>
+    )
+  }
+</figure>

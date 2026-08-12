@@ -12,6 +12,14 @@
 }
 
 @font-face {
+  font-family: 'Inter Tight Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-tight-var.woff2') format('woff2-variations');
+}
+
+@font-face {
   font-family: 'JetBrains Mono Variable';
   font-style: normal;
   font-display: swap;
@@ -20,8 +28,8 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Design tokens — documentary register. Paper, ink, hairline rules,
-   one accent (deep green). No gold, no gradients, no shadows.
+   Design tokens — field-report register (03-ART-DIRECTION).
+   Paper, ink, hairline rules, one accent. No gold, no gradients, no shadows.
 --------------------------------------------------------------------------- */
 @theme {
   --color-paper: #f7f5f1;
@@ -29,13 +37,18 @@
   --color-mid: #6e6e6e;
   --color-rule: #cfcac2;
   --color-accent: #1f4e46;
-  /* Accessible tints of the accent for backgrounds only */
   --color-accent-wash: #eef1ee;
 
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter Tight Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
 
   --default-font-family: var(--font-sans);
+}
+
+/* Grain tile: inline SVG turbulence noise — well under 2KB, cache-free */
+:root {
+  --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='64' height='64' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------------------------------------------------------------------------
@@ -45,19 +58,6 @@ html {
   background-color: var(--color-paper);
   color: var(--color-ink);
   scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 body {
@@ -70,10 +70,56 @@ body {
   color: var(--color-paper);
 }
 
-/* Visible focus states everywhere — WCAG 2.2 AA */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Inverse (dark) sections get a paper focus ring for contrast */
+.inverse :focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/* ---------------------------------------------------------------------------
+   Type scale — premium lives in the extremes. 4:1 display-to-body.
+--------------------------------------------------------------------------- */
+.display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.annotation {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  color: var(--color-mid);
+}
+
+.inverse .annotation {
+  color: color-mix(in srgb, var(--color-paper) 72%, transparent);
+}
+
+/* Section number in the outer margin — what makes it read as a document */
+.section-no {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-mid);
+}
+
+.inverse .section-no {
+  color: color-mix(in srgb, var(--color-paper) 72%, transparent);
 }
 
 /* ---------------------------------------------------------------------------
@@ -82,7 +128,7 @@ body {
 .prose {
   max-width: 68ch;
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .prose > * + * {
@@ -90,9 +136,10 @@ body {
 }
 
 .prose h2 {
-  font-size: 1.375rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   margin-top: 2.5em;
   padding-top: 1.25em;
   border-top: 1px solid var(--color-rule);
@@ -161,10 +208,123 @@ body {
   font-size: 0.875em;
 }
 
-/* Figures / annotations set in mono, per the documentary register */
-.annotation {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.01em;
-  color: var(--color-mid);
+/* ---------------------------------------------------------------------------
+   Plate — the single photographic treatment (03-ART-DIRECTION §2).
+   Monochrome, duotoned into the palette, grain, reduced contrast.
+   Applied only via the <Plate> component; no image ships outside it.
+--------------------------------------------------------------------------- */
+.plate {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-accent);
+}
+
+.plate > img,
+.plate > picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(0.92) brightness(1.02);
+  mix-blend-mode: multiply;
+}
+
+/* Grain: repeating noise tile, 4% opacity, above the image */
+.plate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-url);
+  background-repeat: repeat;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Dark scrim zone where type sits over a plate — guarantees contrast */
+.plate-scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Inverse — full-width dark band for the strongest statements.
+--------------------------------------------------------------------------- */
+.inverse {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.inverse a {
+  color: var(--color-paper);
+}
+
+.inverse .rule {
+  border-color: color-mix(in srgb, var(--color-paper) 25%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Motion — small, deliberate, once-only. All gated behind reduced-motion.
+   .reveal elements fade/rise 12px when motion.js adds .in-view.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  html.js .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  html.js .plate-zoom > img,
+  html.js .plate-zoom > picture img {
+    transform: scale(1.04);
+    transition: transform 1.2s ease-out;
+  }
+
+  html.js .plate-zoom.in-view > img,
+  html.js .plate-zoom.in-view > picture img {
+    transform: scale(1);
+  }
+
+  /* RiskLadder draw-in */
+  html.js .riskladder .rl-line {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    transition: stroke-dashoffset 1.4s ease-out;
+  }
+
+  html.js .riskladder .rl-fill,
+  html.js .riskladder .rl-note {
+    opacity: 0;
+    transition: opacity 0.8s ease-out 0.9s;
+  }
+
+  html.js .riskladder.in-view .rl-line {
+    stroke-dashoffset: 0;
+  }
+
+  html.js .riskladder.in-view .rl-fill,
+  html.js .riskladder.in-view .rl-note {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

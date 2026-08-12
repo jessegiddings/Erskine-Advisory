@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Plate from '../../components/Plate.astro';
 
 const posts = (await getCollection('insights')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -22,6 +23,13 @@ const fmt = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'long', d
         protecting an owner’s position, written to be useful whether or not you ever hire us.
       </p>
     </header>
+
+    <Plate
+      src="/plates/plate-14-timber.svg"
+      alt="End grain of stacked dimensional timber in a material yard"
+      caption="Notes written to be useful before we’re hired."
+      class="mt-12 aspect-[21/9]"
+    />
 
     <div class="mt-12 max-w-3xl">
       {

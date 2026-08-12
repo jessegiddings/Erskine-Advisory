@@ -1,6 +1,7 @@
 ---
 import Article from '../layouts/Article.astro';
 import FeeTable from '../components/FeeTable.astro';
+import Plate from '../components/Plate.astro';
 
 const entryRows = [
   {
@@ -73,6 +74,13 @@ const jsonLd = [
   <div class="not-prose mt-6">
     <FeeTable caption="Quoted before applicable taxes. Travel and disbursements at cost." rows={entryRows} />
   </div>
+
+  <Plate
+    src="/plates/plate-07-rule.svg"
+    alt="A steel measuring rule on an empty field, casting one shadow"
+    caption="Fixed scope, fixed fee, stated before work begins."
+    class="my-12 aspect-[21/9]"
+  />
 
   <h2>Full representation — how it’s structured</h2>
   <p>Priced two ways, and which one suits a project depends on how defined the scope is:</p>

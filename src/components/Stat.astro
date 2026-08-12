@@ -1,0 +1,30 @@
+---
+/**
+ * Stat — the oversized statistic (03-ART-DIRECTION §4.2).
+ *
+ * Enormous mono numeral with one line of explanation. Screen readers get
+ * the full sentence; the visual pair is aria-hidden so the number is never
+ * read as an orphan. Numbers must be real and sourced — never invented.
+ */
+interface Props {
+  /** The figure as displayed, e.g. "$0", "1–5%", "100%". */
+  value: string;
+  /** One line of explanation shown beneath the number. */
+  label: string;
+  /** Full sentence for screen readers, e.g. "We accept zero compensation…". */
+  sentence: string;
+  class?: string;
+}
+
+const { value, label, sentence, class: className } = Astro.props;
+---
+
+<div class:list={['reveal', className]}>
+  <p class="sr-only">{sentence}</p>
+  <div aria-hidden="true">
+    <p class="font-mono text-[clamp(3.5rem,7.5vw,8rem)] leading-none font-medium tracking-tight whitespace-nowrap text-accent">
+      {value}
+    </p>
+    <p class="mt-4 max-w-sm text-[1.0625rem] leading-relaxed">{label}</p>
+  </div>
+</div>

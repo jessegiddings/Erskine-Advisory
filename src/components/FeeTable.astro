@@ -1,4 +1,10 @@
 ---
+/**
+ * FeeTable — the fee table as a designed object (03-ART-DIRECTION §4.6).
+ * Fee transparency is the strategic centrepiece; this should look like the
+ * most considered thing on the site. Mono numerals, generous row height,
+ * hairline rules, accent on the fee column.
+ */
 interface Row {
   service: string;
   structure: string;
@@ -15,29 +21,36 @@ const { caption, rows } = Astro.props;
 ---
 
 <table class="w-full border-collapse text-left">
-  <caption class="annotation mb-3 text-left">{caption}</caption>
+  <caption class="annotation mb-4 text-left">{caption}</caption>
   <thead>
-    <tr class="border-b border-ink">
-      <th scope="col" class="py-2 pr-4 text-sm font-semibold">Engagement</th>
-      <th scope="col" class="py-2 pr-4 text-sm font-semibold">Structure</th>
-      <th scope="col" class="py-2 text-sm font-semibold">Fee</th>
+    <tr class="border-b-2 border-ink">
+      <th scope="col" class="py-3 pr-6 font-mono text-[0.75rem] font-medium tracking-[0.08em] uppercase text-mid">
+        Engagement
+      </th>
+      <th scope="col" class="hidden py-3 pr-6 font-mono text-[0.75rem] font-medium tracking-[0.08em] uppercase text-mid sm:table-cell">
+        Structure
+      </th>
+      <th scope="col" class="py-3 font-mono text-[0.75rem] font-medium tracking-[0.08em] uppercase text-accent">
+        Fee
+      </th>
     </tr>
   </thead>
   <tbody>
     {
       rows.map((row) => (
         <tr class="border-b border-rule align-top">
-          <td class="py-3 pr-4 text-sm">
+          <td class="py-6 pr-6">
             {row.href ? (
-              <a href={row.href} class="font-medium text-accent underline underline-offset-4">
+              <a href={row.href} class="text-[1.0625rem] font-semibold text-ink underline decoration-rule underline-offset-4 hover:text-accent hover:decoration-accent">
                 {row.service}
               </a>
             ) : (
-              <span class="font-medium">{row.service}</span>
+              <span class="text-[1.0625rem] font-semibold">{row.service}</span>
             )}
+            <p class="mt-2 max-w-md text-sm leading-relaxed text-mid sm:hidden">{row.structure}</p>
           </td>
-          <td class="py-3 pr-4 text-sm text-mid">{row.structure}</td>
-          <td class="py-3 font-mono text-sm">{row.fee}</td>
+          <td class="hidden py-6 pr-6 text-sm leading-relaxed text-mid sm:table-cell">{row.structure}</td>
+          <td class="py-6 font-mono text-[0.95rem] leading-relaxed text-ink">{row.fee}</td>
         </tr>
       ))
     }

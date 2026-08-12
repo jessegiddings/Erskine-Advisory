@@ -1,0 +1,22 @@
+---
+/**
+ * Inverse — full-width dark band (03-ART-DIRECTION §6).
+ * Reserved for the strongest statements: the conflict argument, the
+ * independence commitment, the closing CTA. Two or three per site, no more.
+ */
+interface Props {
+  /** Section number shown in the margin, e.g. "02 / 06". */
+  sectionNo?: string;
+  labelledby?: string;
+  class?: string;
+}
+
+const { sectionNo, labelledby, class: className } = Astro.props;
+---
+
+<section class:list={['inverse', className]} aria-labelledby={labelledby}>
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+    {sectionNo && <p class="section-no mb-8" aria-hidden="true">{sectionNo}</p>}
+    <slot />
+  </div>
+</section>
